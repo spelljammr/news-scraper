@@ -53,57 +53,57 @@ app.get("/scrape", function(req, res) {
                     console.log(err);
                 });
         });
-
         // Send a message to the client
         res.send('Scrape Finished');
     });
 });
-
-
 // Route for getting all Articles from the db
 app.get('/articles', function(req, res) {
     // Grab every document in the Articles collection
     db.Article.find()
-        .then(function(dbArticle) {
+        .then(function(dbPopulate) {
             // If we were able to successfully find Articles, send them back to the client
-            res.json(dbArticle);
+            res.json(dbPopulate);
         })
         .catch(function(err) {
             // If an error occurred, send it to the client
             res.json(err);
         });
 });
+
 // Route for grabbing a specific Article by id, populate it with it's note
 app.get('/articles/:id', function(req, res) {
     // Prepare a query to find article by id.
     db.Article.findOne({ _id: req.params.id })
         // Populate with related notes
         .populate('note')
-        .then(function(dbArticle) {
+        .then(function(dbPopulate) {
             // Send back results of successful query to client
-            res.json(dbArticle);
+            res.json(dbPopulate);
         })
         .catch(function(err) {
             // If an error occurred, send it to the client
             res.json(err);
         });
 });
+
 // POST route to save/update an articles note
 app.post('/articles/:id', function(req, res) {
     // Create a new note
     db.Note.create(req.body)
-        .then(function(dbNote) {
-            return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbNote._id }, { new: true });
+        .then(function(dbPopulate) {
+            return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbPopulate._id }, { new: true });
         })
-        .then(function(dbArticle) {
+        .then(function(dbPopulate) {
             // Send updated article back to client
-            res.json(dbArticle);
+            res.json(dbPopulate);
         })
         .catch(function(err) {
             // Otherwise send the resulting error to the client
             res.json(err);
         });
 });
+
 // Start the server
 app.listen(PORT, function() {
     console.log(`App running on port ${PORT}`);
