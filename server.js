@@ -22,7 +22,7 @@ app.use(express.static('public'));
 
 // Connect to MongoDB
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/mongoHeadlines';
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // A GET route for scraping the news website.
 app.get("/scrape", function(req, res) {
