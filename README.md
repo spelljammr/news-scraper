@@ -14,11 +14,12 @@ In this assignment, you'll create a web app that lets users view and leave comme
 
 ---
 ### Usage
-1. At the top of the page, click __Scrape__. 'Scrape finished' will be displayed at the top of the screen.
+1. At the top of the page, click __Scrape__. 'Scrape finished' will be displayed at the top of the screen. 
 2. Navigate back. At this point, you can click __Articles__ at the top of the page to see a JSON object view of the scraped articles, or click one of the articles listed in the center of the page.
 2. Clicking a headline will bring up the __Note box__ on the right side of the screen.
 3. Within the fields of this box, you can enter a note about the article. Clicking __Save Note__ will save the note to that article. Clicking the headline again will reveal the saved note.
 
+*See below for example screenshot*
 <img width="977" alt="Screen Shot 2019-07-23 at 8 18 56 PM" src="https://user-images.githubusercontent.com/40612623/61762921-65684300-ad88-11e9-891b-7ec76b693173.png">
 <img width="534" alt="Screen Shot 2019-07-23 at 8 19 31 PM" src="https://user-images.githubusercontent.com/40612623/61762928-6ac58d80-ad88-11e9-8ef0-f7cff347bbd0.png">
 
