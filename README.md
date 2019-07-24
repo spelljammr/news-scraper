@@ -28,7 +28,7 @@ npm i
 2. Clicking a headline will bring up the __Note box__ on the right side of the screen.
 3. Within the fields of this box, you can enter a note about the article. Clicking __Save Note__ will save the note to that article. Clicking the headline again will reveal the saved note.
 
-*See below for example screenshots*
+*See example screenshots below*
 <img width="977" alt="Screen Shot 2019-07-23 at 8 18 56 PM" src="https://user-images.githubusercontent.com/40612623/61762921-65684300-ad88-11e9-891b-7ec76b693173.png">
 <img width="534" alt="Screen Shot 2019-07-23 at 8 19 31 PM" src="https://user-images.githubusercontent.com/40612623/61762928-6ac58d80-ad88-11e9-8ef0-f7cff347bbd0.png">
 
