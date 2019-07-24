@@ -14,7 +14,11 @@ In this assignment, you'll create a web app that lets users view and leave comme
 
 ---
 ### Usage
-1. Click a headline to bring up the __Note box__
+1. At the bottom of the page, click __'Scrape'__. 'Scrape finished' will be displayed at the top of the screen.
+2. Navigate back. At this point, you can click __'Articles'__ at the bottom of the page to see a JSON object view of the scraped articles, or click one of the articles listed in the center of the page.
+2. Clicking a headline will bring up the __Note box__ at the bottom of the screen.
+3.  
+
 
 ---
 ### Technologies Used
