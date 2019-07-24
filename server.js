@@ -21,18 +21,17 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // Connect to MongoDB
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/mongoHeadlines';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/mongoHeadlines1';
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // A GET route for scraping the news website.
 app.get("/scrape", function(req, res) {
     // First, we grab the body of the html with axios
-    axios.get('https://www.reddit.com/').then(function(response) {
+    axios.get('http://bioethics.net/news').then(function(response) {
         // Then, we load that into cheerio and save it to $ for a shorthand selector
         var $ = cheerio.load(response.data);
-        console.log(response.data);
-        // Now, we grab every h2 within an article tag, and do the following:
-        $('article h2').each(function(i, element) {
+        // Now, we grab every h5 within an article tag, and do the following:
+        $('h5').each(function(i, element) {
             // Save an empty result object
             var result = {};
             // Add the text and href of every link, and save them as properties of the result object
@@ -74,7 +73,7 @@ app.get('/articles', function(req, res) {
 // Route for grabbing a specific Article by id, populate it with it's note
 app.get('/articles/:id', function(req, res) {
     // Prepare a query to find article by id.
-    db.Article.findOne({ _id: req.params.id })
+    db.Article.findById({ _id: req.params.id })
         // Populate with related notes
         .populate('note')
         .then(function(dbPopulate) {
@@ -92,7 +91,7 @@ app.post('/articles/:id', function(req, res) {
     // Create a new note
     db.Note.create(req.body)
         .then(function(dbPopulate) {
-            return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbPopulate._id }, { new: true });
+            return db.Article.findOneAndUpdate({ _id: req.params.id }, { $push: { note: dbPopulate._id } }, { new: true });
         })
         .then(function(dbPopulate) {
             // Send updated article back to client
