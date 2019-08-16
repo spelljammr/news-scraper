@@ -18,9 +18,15 @@ cd ./news-scraper
 ```
 npm i
 ```
-5. Enter the following in the terminal window to start the server: `node server.js`. Note that you may also use `nodemon server.js` if the __Nodemon.js__ package is installed. 
-6. The app may now be run 
-
+5. Enter the following in the terminal window to start the server: 
+```
+node server.js
+```
+Note that you may also use `nodemon server.js` if the __Nodemon.js__ package is installed.  
+6. The app may now be run by opening your browser and entering the following in the URL bar:
+```
+localhost:3000
+```
 ---
 ### Usage
 1. At the top of the page, click __Scrape__. 'Scrape finished' will be displayed at the top of the screen. 
